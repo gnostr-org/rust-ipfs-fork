@@ -2689,7 +2689,7 @@ dependencies = [
  "futures-timer",
  "getrandom 0.2.16",
  "libp2p",
- "rand 0.8.5",
+ "rand 0.9.1",
  "tokio",
 ]
 
@@ -4146,7 +4146,7 @@ dependencies = [
  "pollable-map",
  "quick-protobuf",
  "quick-protobuf-codec",
- "rand 0.8.5",
+ "rand 0.9.1",
  "rand_chacha 0.3.1",
  "rcgen",
  "rlimit",
