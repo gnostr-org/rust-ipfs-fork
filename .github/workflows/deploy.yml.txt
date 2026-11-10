@@ -1,0 +1,32 @@
+name: Deploy IPFS site
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and deploy IPFS site
+        id: deploy
+        uses: RandyMcMillan/ipfs-gh-pages@8e5ea397b3fa70854b2b2779eb3f2e8ead0691dd # v2.0.1 # v2.0.0 # v1.7.09 # v1.7.08 # v1.7.07 # v1.7.06 # v1.7.05 # v1.7.04 # v1.7.03 # v1.7.02 # v1.7.01
+        with:
+          node-version: '20'
+          deploy: 'true'
